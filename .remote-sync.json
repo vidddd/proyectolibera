@@ -1,0 +1,15 @@
+{
+  "transport": "ftp",
+  "uploadOnSave": false,
+  "useAtomicWrites": false,
+  "deleteLocal": false,
+  "hostname": "185.161.98.4",
+  "target": "/public_html",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "libera",
+  "password": "FH9MGCtX",
+  "watch": []
+}

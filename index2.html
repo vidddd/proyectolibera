@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Un metro cuadrado</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+    <script src="js/validator.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.8.15/hyperform.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.8.15/hyperform.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rambla" rel="stylesheet">
+    <script>
+        hyperform(window)
+    </script>
+    <style>
+      #map {
+        height: 500px;
+        width: 500px;
+        float:right;
+      }
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+
+      #infowindow-content {
+        display: none;
+      }
+
+      #map #infowindow-content {
+        display: inline;
+      }
+
+      .pac-card {
+        margin: 20px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+      }
+
+      #pac-container {
+        padding: 12px 0;
+        margin-right: 12px;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 10px 11px 10px 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-content">
+        <div class="container">
+          <div class="row">
+            <h1 class="title-underline">Formulario de Participaci&oacute;n</h1>
+            <p> Queremos que el 13 de mayo se celebre el dia XXX en todos los rincones de nuestro pais para concienciar de la importancia de cuidar nuestros espacios naturales. Por ello, si estas interesado en organizar alguna actividad en tu pueblo o ciudad,
+                rellena este formulario. Importante: Rellena una ficha por cada lugar de particiaci&oacute;n</p>
+            <p>Para cualquier duda o sugerencia escribenos a <a href="mailto:">xxxxx@seo.org</a></p>
+            <p> !GRACIAS POR TU PARTICIACI&Oacute;N¡</p>
+          </div>
+
+        <div class="row">
+          <div class="row clearfix">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                  <form id="form1" class="boxed-form" name="form1" method="post" role="form" data-toggle="validator">
+                      <div id="success" style="display:none;">
+                          <p>Your message was sent successfully!</p>
+                      </div>
+                      <div id="error" style="display:none">
+                          <p>Something went wrong, try refreshing and submitting the form again.</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Lugar</label>
+                          <input class="form-control" name="lugar" type="text" required>
+                          <p class="description">Introduce el nombre del lugar en que se realizará la acción</p>
+
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Organiza</label>
+                          <input class="form-control" value="" name="organiza" type="text" data-error="Data requerido" required>
+                          <p class="description">Nombre de la entidad. En caso de ser una persona, nombre y apellidos</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Direcci&oacute;n</label>
+                          <input class="form-control" value="" name="direccion" type="text" required>
+                          <p class="description">Donde se recibirán los materiales facilitados para el evento</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Email de Contacto </label>
+                          <input class="form-control" value="" name="email" type="email" required>
+                          <p class="description">A donde también puedan dirigirse las personas interesadas en participar</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Persona de contacto</label>
+                          <input class="form-control" value="" name="persona" type="text" required>
+                          <p class="description">Nombre y apellidos, para uso interno en las labores organizativas</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Teléfono de contacto</label>
+                          <input class="form-control" value="" name="telefono" type="number" required>
+                          <p class="description">Para uso interno en las labores organizativas</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Hora</label>
+                          <input class="form-control" value="" name="hora" type="text" required>
+                          <p class="description">Del inicio de la actividad</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Más Información</label>
+                          <input class="form-control" value="" name="masinfo" type="url">
+                          <p class="description">Link DIRECTO a web, blog, Facebook u otra red social, etc. donde ampliar información de vuestras actividades. Si hubiera varias opciones elegir una, sino hubiera especificarlo.</p>
+                      </div>
+                      <div class="form-group">
+                          <label class="control-label">Comentarios</label>
+                          <textarea class="form-control" rows="10" name="comentarios"></textarea>
+                          <p class="description">Algo que convenga especificar</p>
+                      </div>
+                      <button class="btn btn-default btn-top" type="submit" id="submit">PARTICIPA !!</button>
+                  </form>
+              </div>
+              <div class="col-sm-4 col-md-5 col-lg-6">
+                      <div class="pac-card" id="pac-card">
+                        <!-- <div>
+                          <div id="title">
+                            Lugares
+                          </div>
+                        </div> -->
+                        <div id="pac-container">
+                          <input id="pac-input" type="text" placeholder="Busca un lugar">
+                        </div>
+                      </div>
+                    <div id="map"></div>
+                    <div id="infowindow-content">
+                      <img src="" width="16" height="16" id="place-icon">
+                      <span id="place-name"  class="title"></span><br>
+                      <span id="place-address"></span>
+                    </div>
+                    <input type="text" name="latitud" id="latitud" value="" />
+                    <input type="text" name="longitud" id="longitud" value="" />
+              </div>
+          </div>
+        </div>
+        <footer>
+        </footer>
+  </div><!-- container -->
+</div> <!-- page-content -->
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.3781, lng: -3.6795366},
+          zoom: 5
+        });
+        var card = document.getElementById('pac-card');
+        var input = document.getElementById('pac-input');
+        //var countries = document.getElementById('country-selector');
+
+        //map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        // Set initial restrict to the greater list of countries.
+        autocomplete.setComponentRestrictions(
+            {'country': ['es']});
+
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindowContent.children['place-icon'].src = place.icon;
+          infowindowContent.children['place-name'].textContent = place.name;
+          infowindowContent.children['place-address'].textContent = address;
+          infowindow.open(map, marker);
+          document.getElementById('latitud').value = place.geometry.location;
+        });
+
+        // Sets a listener on a given radio button. The radio buttons specify
+        // the countries used to restrict the autocomplete search.
+
+      /*  function setupClickListener(id, countries) {
+          var radioButton = document.getElementById(id);
+          radioButton.addEventListener('click', function() {
+            autocomplete.setComponentRestrictions({'country': countries});
+          });
+        }
+
+        setupClickListener('changecountry-usa', 'us');
+        setupClickListener(
+            'changecountry-usa-and-uot', ['us', 'pr', 'vi', 'gu', 'mp']);*/
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>

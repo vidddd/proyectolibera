@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Proyecto Libera</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.8.15/hyperform.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.8.15/hyperform.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:400,900" rel="stylesheet">
+	  <script src="js/jquery.validate.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-78273718-2', 'auto');
+  ga('send', 'pageview');
+	</script>
+  <script>hyperform(window)</script>
+  </head>
+  <body>
+    {% if mensaje == 3 %}
+      <section id="error">
+        <div id="ventana"><div id="cierre"><img id="closee" src="img/x.png"></div>
+        <div id="alerta"><p>¡ALGO NO VA BIEN!</p>
+        <p>Por favor, revise los campos del formulario.</p>
+        <p>Uno o alguno de ellos puede estar incompleto o rellenado de forma incorrecta.</p></div>
+        </div>
+        <script>ga('send', 'event', 'Botón', 'Enviar', 'Error');</script>
+      </section>
+    {% endif %}
+   {% if mensaje == 1 %}
+      <section id="error">
+        <div id="ventana"><div id="cierre"><img id="closee" src="img/x.png"></div>
+        <div id="alerta"><p>¡YA NOS CONOCEMOS!</p>
+        <p>Lamentablemente ya contamos con este mail en el registro.</p>
+        <p>Inténtelo de nuevo con otra dirección de correo para poder participar en el evento.</p></div>
+        </div>
+      </section>
+    {% endif %}
+  {% if mensaje == 2 %}
+      <section id="error">
+        <div id="ventana"><div id="cierre"><img id="closee" src="img/x.png"></div>
+        <div id="alerta"><p>¡GRACIAS POR PARTICIPAR!</p>
+        <p>Su formulario ha sido completado satisfactoriamente.</p>
+        <p>Muchas gracias por colaborar con LIBERA.</p></div>
+        </div>
+        <script>ga('send', 'event', 'Botón', 'Enviar', 'Ok');</script>
+      </section>
+  {% endif %}
+    <div class="page-content">
+
+    <!--//BLOQUE COOKIES-->
+<div id="barraaceptacion" style="display: block;">
+    <div class="cook">
+        Las cookies propias y de terceros nos permiten mejorar nuestros servicios. Al navegar por nuestro sitio web, aceptas el uso que hacemos de las cookies.
+        <a href="javascript:void(0);" class="ok" onclick="aceptar_cookies();"><b>Aceptar</b></a>
+    </div>
+</div>
+
+<script>
+function getCookie(c_name){
+    var c_value = document.cookie;
+    var c_start = c_value.indexOf(" " + c_name + "=");
+    if (c_start == -1){
+        c_start = c_value.indexOf(c_name + "=");
+    }
+    if (c_start == -1){
+        c_value = null;
+    }else{
+        c_start = c_value.indexOf("=", c_start) + 1;
+        var c_end = c_value.indexOf(";", c_start);
+        if (c_end == -1){
+            c_end = c_value.length;
+        }
+        c_value = unescape(c_value.substring(c_start,c_end));
+    }
+    return c_value;
+}
+
+function setCookie(c_name,value,exdays){
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+
+if(getCookie('tiendaaviso')!="1"){
+    document.getElementById("barraaceptacion").style.display="block";
+}
+function PonerCookie(){
+    setCookie('tiendaaviso','1',365);
+    document.getElementById("barraaceptacion").style.display="none";
+}
+</script>
+<!--//FIN BLOQUE COOKIES-->
+
+       <header>
+          	<div id="logo"><img src="img/libera.png"></div>
+            <div id="tx_logo"><img src="img/tx_header.png"></div>
+      </header>
+        <section id="bosque">
+        </section>
+      <div class="container">
+        <section id="titulo">
+        <h1>FORMULARIO DE PARTICIPACIÓN</h1>
+        </section>
+        <section id="descripcion">
+        	<p>El <strong>17 de junio</strong> celebramos <strong>la primera recogida colectiva de basuras a nivel nacional</strong>, un día en el que buscamos concienciar sobre la importancia de no tirar basura.</p><br>
+            <p>Nuestros espacios naturales están invadidos por millones de residuos y nuestro objetivo es acabar con todos ellos. ¿Nos echas una mano? Si estás interesado en participar, rellena este formulario (una ficha por cada lugar de celebración).</p><br>
+            <p>Para cualquier duda o sugerencia escríbenos a <a href="mailto:libera@seo.org">libera@seo.org</a></p><br>
+            <p><strong>¡Gracias por ayudarnos a conseguir una naturaleza libre de basura!</strong></p>
+        </section>
+        <div class="row">
+           <div id="datos" class="row">
+           <p>*Obligatorio</p>
+            <h1>DATOS DE LOS ORGANIZADORES</h1>
+            </div>
+          <div class="row clearfix" id="formulario">
+            <form id="form1" class="boxed-form" name="form1" method="post" role="form" action="{# URLHOME #}">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                      <div class="form-group">
+                          <label for="persona" class="control-label">Persona de contacto*</label>
+                          <p class="description">Nombre y apellidos: para uso interno<br> en las labores organizativas.</p>
+                          <input class="form-control" value="" name="persona"  class="form-control" data-rule-required="true" >
+                      </div>
+                      <div class="form-group">
+                          <label for="email" class="control-label">Email de Contacto*</label>
+                          <p class="description">A donde también puedan dirigirse las personas<br> interesadas en participar.</p>
+                          <input class="form-control" value="" name="email" type="email"  data-rule-required="true" required>
+                          <div class="help-block with-errors"></div>
+                     </div>
+                      <div class="form-group">
+                          <label for="telefono" class="control-label">Teléfono de contacto*</label>
+                          <p class="description">Para uso interno en las labores organizativas.</p>
+                          <input maxlength="10" class="form-control" value="" name="telefono" type="text" required>
+                          </div>
+                      <div class="form-group">
+                          <label for="direccion" class="control-label">Direcci&oacute;n*</label>
+                          <p class="description">Donde se recibirán los materiales facilitados<br> para el evento.</p>
+                          <input class="form-control" value="" name="direccion" type="text" required>
+                          </div>
+                      <div class="form-group">
+                          <label class="control-label">Organiza</label>
+                          <p class="description">Nombre de la entidad. En caso de ser una persona física,<br> indicar nombre y apellidos.</p>
+                          <input class="form-control" value="" name="organiza" type="text">
+                          </div>
+                      <div class="form-group">
+                          <label class="control-label">Más Información</label>
+                          <p class="description">Link directo a web, blog, Facebook u otra red social,<br> donde ampliar información de vuestras actividades.<br>Si hubiera varias opciones, elegir una. Y si no hubiera,<br> es necesario especificarlo.</p>
+                          <input class="form-control" value="" name="masinfo" type="text">
+                          </div>
+              </div>
+              <div class="col-sm-4 col-md-5 col-lg-6" id="separador">
+              			<div class="form-group">
+                          <label for="provincia" class="control-label">Provincia*</label>
+                               <select class="desplegable form-control" name="provincia">  <option value="">Selecciona</option>  <option value="15">A coru&#241;a</option>  <option value="1">&#193;lava</option>  <option value="2">Albacete</option>  <option value="3">Alicante</option> <option value="4">Almer&#237;a</option>
+                                          <option value="33">Asturias</option>
+                                          <option value="5">&#193;vila</option>
+                                          <option value="6">Badajoz</option>
+                                          <option value="7">Baleares</option>
+                                          <option value="8">Barcelona</option>
+                                          <option value="9">Burgos</option>
+                                          <option value="10">C&#225;ceres</option>
+                                          <option value="11">C&#225;diz</option>
+                                          <option value="39">Cantabria</option>
+                                          <option value="12">Castell&#243;n</option>
+                                          <option value="51">Ceuta</option>
+                                          <option value="13">Ciudad Real</option>
+                                          <option value="14">C&#243;rdoba</option>
+                                          <option value="16">Cuenca</option>
+                                          <option value="99">Extranjero</option>
+                                          <option value="17">Girona</option>
+                                          <option value="18">Granada</option>
+                                          <option value="19">Guadalajara</option>
+                                          <option value="20">Guip&#250;zcoa</option>
+                                          <option value="21">Huelva</option>
+                                          <option value="22">Huesca</option>
+                                          <option value="23">Ja&#233;n</option>
+                                          <option value="26">La rioja</option>
+                                          <option value="35">Las palmas</option>
+                                          <option value="24">Le&#243;n</option>
+                                          <option value="25">Lleida</option>
+                                          <option value="27">Lugo</option>
+                                          <option value="28">Madrid</option>
+                                          <option value="29">M&#225;laga</option>
+                                          <option value="52">Melilla</option>
+                                          <option value="30">Murcia</option>
+                                          <option value="31">Navarra</option>
+                                          <option value="32">Ourense</option>
+                                          <option value="34">Palencia</option>
+                                          <option value="36">Pontevedra</option>
+                                          <option value="37">Salamanca</option>
+                                          <option value="38">Santa cruz de tenerife</option>
+                                          <option value="40">Segovia</option>
+                                          <option value="41">Sevilla</option>
+                                          <option value="42">Soria</option>
+                                          <option value="43">Tarragona</option>
+                                          <option value="44">Teruel</option>
+                                          <option value="45">Toledo</option>
+                                          <option value="46">Valencia</option>
+                                          <option value="47">Valladolid</option>
+                                          <option value="48">Vizcaya</option>
+                                          <option value="49">Zamora</option>
+                                          <option value="50">Zaragoza</option>
+								                  </select>
+						        </div>
+                    <div class="form-group">
+                        <div class="pac-card" id="pac-card">
+                        <label for="lugar" class="control-label">Lugar*</label>
+                            <p class="description">Indique el lugar (Ej: Parque Nacional de Doñana)<br> y señale el punto exacto de encuentro en el mapa<br> para facilitar la unión de más personas a su grupo el día del evento.</p>
+                          <div id="pac-container">
+                            <input id="pac-input" type="text" name="lugar" placeholder="Busca un lugar" required>
+                          </div>
+                        </div>
+                          <div id="map" style="width: 100%; height: 360px; position: relative;"></div>
+                          <div id="infowindow-content">
+                            <!--<img src="" width="16" height="16" id="place-icon">-->
+                            <span id="place-name"  class="title"></span><br>
+                            <span id="place-address"></span>
+                        </div>
+                        <input type="hidden" value="" name="location" id="location" />
+                      </div>
+                      <div class="form-group">
+                          <label for="hora" class="control-label">Hora*</label>
+                          <p class="description">Hora de comienzo de la actividad.</p>
+                          <select class="form-control desplegable" name="hora"  data-rule-required="true" required>
+                                          <option value="">Selecciona</option>
+                                          <option value="09:00">09:00 h.</option>
+                                          <option value="09:30">09:30 h.</option>
+                                          <option value="10:00">10:00 h.</option>
+                                          <option value="10:30">10:30 h.</option>
+                                          <option value="11:00">11:00 h.</option>
+                                          <option value="11:30">11:30 h.</option>
+                                          <option value="12:00">12:00 h.</option>
+                                          <option value="12:30">12:30 h.</option>
+                                          <option value="13:00">13:00 h.</option>
+                                          <option value="13:30">13:30 h.</option>
+                                          <option value="14:00">14:00 h.</option>
+                                          <option value="14:30">14:30 h.</option>
+                                          <option value="15:00">15:00 h.</option>
+                                          <option value="15:30">15:30 h.</option>
+                                          <option value="16:00">16:00 h.</option>
+                                          <option value="16:30">16:30 h.</option>
+                                          <option value="17:00">17:00 h.</option>
+                                          <option value="17:30">17:30 h.</option>
+                                          <option value="18:00">18:00 h.</option>
+								                         </select>
+                          </div>
+                       <div class="form-group">
+                          <label for="numero" class="control-label">Número de personas</label>
+                          <p class="description">El número de personas que le acompañarán al evento.</p>
+                          <input class="form-control" value="" name="numero"  class="form-control" required >
+                          </div>
+                      <div class="form-group">
+                          <label for="comentarios" class="control-label">Comentarios</label>
+                          <p class="description">Algo que convenga especificar.<br> Por ejemplo, detalles acerca del lugar de encuentro.</p>
+                          <textarea id="comentarios" class="form-control" rows="10" name="comentarios"></textarea>
+                        </div>
+                       <div class="form-group">
+                           <input style="width:20px; height:20px; display:inline; float:left; color: #222221; padding-right:5px;" type="checkbox" class="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="partip"/><span class="nombre3">Acepto participar en la celebración cumpliendo con las <strong><a href="pdf/condiciones_participacion.pdf" target="_blank">condiciones de participación.</a></span></strong>
+                         </div>
+                        <div class="form-group">
+                           <input style="width:20px; height:20px; display:inline; float:left; color: #222221; padding-right:5px;" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms"/><span class="nombre3">Al aceptar me comprometo a organizar una recogida y devolver la info a la organización.</span>
+			</div>
+            			<div class="form-group">
+                           <input style="width:20px; height:20px; display:inline; float:left; color: #222221; padding-right:5px;" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms"/><span class="nombre3">He leido y acepto la <strong><a href="http://www.seo.org/aviso-legal" target="_blank">política de privacidad.</a></strong></span>
+			</div>
+                             <script type="text/javascript">
+                           //   document.getElementById("field_terms").setCustomValidity("Por favor, indica que aceptas las condiciones de participación");
+                            </script>
+                    <div class="form-group">
+                      <button class="btn btn-default btn-top" type="submit" id="submit" onclick="">ENVIAR</button>
+                    </div>
+                  </form>
+                 </div>
+          </div>
+        </div>
+  </div><!-- container -->
+  <footer>
+ <div id="eco"><a href="https://www.ecoembes.com/es" target="_blank"><img src="img/logos.png" usemap="#Map">
+     <map name="Map">
+       <area shape="rect" coords="-1,0,136,65" href="https://www.ecoembes.com/es" alt="Ecoembes" target="_blank">
+       <area shape="rect" coords="185,2,307,62" href="http://www.seo.org" target="_blank" alt="">
+     </map>
+ </a></div>
+    </footer>
+</div> <!-- page-content -->
+    <script>
+     $("#closee").click(function(){
+        $("#error").hide();
+     });
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.3781, lng: -3.6795366},
+          zoom: 5
+        });
+        var card = document.getElementById('pac-card');
+        var input = document.getElementById('pac-input');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        // Set initial restrict to the greater list of countries.
+        autocomplete.setComponentRestrictions({'country': ['es']});
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29),
+          draggable:true,
+          title:"Arrastrame!"
+        });
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+          //infowindowContent.children['place-icon'].src = place.icon;
+          infowindowContent.children['place-name'].textContent = place.name;
+          infowindowContent.children['place-address'].textContent = address;
+          infowindow.open(map, marker);
+          document.getElementById('location').value = place.geometry.location;
+        });
+        google.maps.event.addListener(marker, 'drag', function (event) {
+          infowindow.close();
+        });
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+          document.getElementById("location").value = this.getPosition().lat()+","+ this.getPosition().lng();
+            //'Latitude: ' + event.latLng.lat() + '<br>Longitude: ' + event.latLng.lng()
+        /*  var infowindow = new google.maps.InfoWindow({
+        });*/
+          var latlng = {lat: parseFloat(event.latLng.lat()), lng: parseFloat(event.latLng.lng())};
+
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({ 'location': latlng,'region':'es'}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                //  return results[0].formatted_address
+                document.getElementById("pac-input").value = results[0].formatted_address;
+                infowindow.setContent(results[0].formatted_address);
+
+            } else {
+              console.log("Geocode was not successful for the following reason: " + status);
+            }
+          });
+          infowindow.open(map,marker);
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>

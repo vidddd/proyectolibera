@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin - Proyecto libera</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../js/jquery.js" type="text/javascript"></script>
+  <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Lato" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="page-content">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10"><div class="bs-example" data-example-id="contextual-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Persona</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Direcci&oacute;n</th>
+                <th>Organiza</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for pa in parti %}
+              <tr class="active">
+                <th scope="row">{{ pa.id }}</th>
+                <td>{{ pa.persona }}</td>
+                <td>{{ pa.email }}</td>
+                <td>{{ pa.telefono }}</td>
+                <td>{{ pa.direccion }}</td>
+                <td>{{ pa.organiza }}</td>
+                <td><a href="index.php?change=2&id={{ pa.id }}">Aprobar</a><a href="index.php?change=3&id={{ pa.id }}">Rechazar</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+  <!-- container -->
+  <footer>
+    <div id="eco"><img src="img/logo_ecoembes.png"></div>
+    <div id="seo"><img src="img/logo_seo.png"></div>
+  </footer>
+  </div>
+  <!-- page-content -->
+</body>
+
+</html>
